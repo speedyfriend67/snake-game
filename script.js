@@ -11,25 +11,21 @@ let snakeBody = [];
 let setIntervalId;
 let score = 0;
 
-// Getting high score from the local storage
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `High Score: ${highScore}`;
 
 const updateFoodPosition = () => {
-    // Passing a random 1 - 30 value as food position
     foodX = Math.floor(Math.random() * 30) + 1;
     foodY = Math.floor(Math.random() * 30) + 1;
 }
 
 const handleGameOver = () => {
-    // Clearing the timer and reloading the page on game over
     clearInterval(setIntervalId);
     alert("Game Over! Press OK to replay...");
     location.reload();
 }
 
 const changeDirection = e => {
-    // Changing velocity value based on key press
     if(e.key === "ArrowUp" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
